@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Anomaly Detector Admin</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<h1>Anomaly Detector Admin</h1>
+<form action="/train" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="file">Training File:</label>
+    <input type="file" id="file" name="file" required>
+  </div>
+  <div>
+    <label for="fileType">File Type:</label>
+    <select id="fileType" name="fileType" required>
+      <option value="csv">CSV</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+  <div>
+    <label for="algorithm">Algorithm:</label>
+    <select id="algorithm" name="algorithm" required>
+      <option value="kMeans">KMeans</option>
+      <option value="bisectingKMeans">BisectingKMeans</option>
+    </select>
+  </div>
+  <div>
+    <label for="features">Features:</label>
+    <input type="text" id="features" name="features" required>
+  </div>
+  <div>
+    <button type="submit">Start Training</button>
+  </div>
+</form>
+<form action="/detect" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="file">Test File:</label>
+    <input type="file" id="file" name="file" required>
+  </div>
+  <div>
+    <label for="fileType">File Type:</label>
+    <select id="fileType" name="fileType" required>
+      <option value="csv">CSV</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+  <div>
+    <label for="metric">Anomaly Metric:</label>
+    <select id="metric" name="metric" required>
+      <option value="Manhattan">Manhattan</option>
+      <option value="Euclidean">Euclidean</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit">Start Anomaly Detection</button>
+  </div>
+</form>
+</body>
+</html>
